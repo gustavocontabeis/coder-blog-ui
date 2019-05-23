@@ -1,0 +1,74 @@
+<style>
+  div {
+    margin-bottom: 15px;
+  }
+
+  .alerta-erro {
+    background-color: red;
+  }
+
+  .alerta-atencao {
+    background-color: yellow;
+  }
+
+  .alerta-info {
+    background-color: blue;
+  }
+
+  .alerta-sucesso {
+    background-color: green;
+  }
+</style>
+<p>
+  exemplo-binding works!
+</p>
+<br />
+<br />
+<h2>propery binding</h2>
+<div>
+  {{ nome }}
+</div>
+<div>
+  <input [(ngModel)]="nome" />
+</div>
+<div>
+  <input value="{{ nome }}" />
+</div>
+
+<div>
+  <img src="{{urlImagem}}" title="Interpolação" />
+</div>
+
+<div>
+  <img [src]="urlImagem" title="PropertyBind" />
+</div>
+<div>
+  <img bind-src="urlImagem" title="formato padrão" />
+</div>
+
+<div>
+  <h2>style binding</h2>
+
+  <!-- utilizando # estamos criando uma variável que armazena o objeto html podendo ser referenciado em outras partes do documento html -->
+
+  <div>
+    <select #componenteSelect (change)="0">
+      <option value="alerta-atencao">Atenção</option>
+      <option value="alerta-erro">Erro</option>
+      <option value="alerta-info">Informação</option>
+      <option value="alerta-sucesso">Sucesso</option>
+    </select>
+  </div>
+
+  <div class="alerta-atencao" [class.alerta-atencao]="componenteSelect.value == 'alerta-atencao'">Atenção</div>
+  <div class="alerta-erro" [class.alerta-erro]="componenteSelect.value == 'alerta-erro'">Erro</div>
+  <div class="alerta-info" [class.alerta-info]="componenteSelect.value == 'alerta-info'">Info</div>
+  <div class="alerta-sucesso" [class.alerta-sucesso]="componenteSelect.value == 'alerta-sucesso'">Sucesso</div>
+
+  <div
+    [style.display]="componenteSelect.value == 'alerta-erro' ? 'block' : 'none'">
+    mensagem que so exibee no erro</div>
+
+  <div>{{ componenteSelect.value}}</div>
+  <div>{{ componenteSelect | json}}</div>
+</div>

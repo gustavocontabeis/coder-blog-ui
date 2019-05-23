@@ -1,0 +1,27 @@
+      <!-- Activities -->
+      <div class="container" id="activities">
+        <div class="row">
+          <div class="col-12">
+            <div class="tm-parallax">
+              <header class="tm-parallax-header">
+                <h2 class="">Mais informações sobre tecnologia</h2>
+              </header>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngFor="let linha of tabela">
+          <div class="col-lg-6" *ngFor="let t of linha">
+            <div class="tm-activity-block">
+              <div class="tm-activity-img-container">
+                <img [src]="t.imagem" alt="Image" class="tm-activity-img" width="180" height="180" />
+              </div>
+              <div class="tm-activity-block-text">
+                <h3 class="tm-text-blue">{{ t.titulo }}</h3>
+                <p>
+                    {{ t.subtitulo }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

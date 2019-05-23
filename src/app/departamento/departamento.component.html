@@ -1,0 +1,53 @@
+<style>
+button {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+</style>
+
+<p>
+  departamento-list works! {{departamento | json }}
+</p>
+
+<p-panel header="Novo Departamento">
+  <div class="p-grid">
+    
+    <div class="p-col-2">Cod.</div>
+    <div class="p-col-10">
+      <input pInputText type="text" [(ngModel)]="departamento.id" />
+    </div>
+    
+    <div class="p-col-2">Nome</div>
+    <div class="p-col-10">
+      <input pInputText type="text" [(ngModel)]="departamento.nome" />
+    </div>
+
+    <div class="p-col-10 p-offset-2">
+      <button pButton type="submit" label="Adicionar" (click)="adicionar()"></button>
+      <button pButton type="submit" label="Remover" (click)="remover()"></button>
+    </div>
+  
+  </div>
+</p-panel>
+<br />
+<p-table [value]="departamentos">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Cod.</th>
+      <th>Nome</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-departamento>
+    <tr>
+      <td>{{departamento.id}}</td>
+      <td>{{departamento.nome}}</td>
+      <td> 
+          <button pButton type="submit" label="Selecionar" (click)="selecionar(departamento)"></button>
+          <button pButton type="submit" label="Remover" (click)="removerSelecionado(departamento)"></button>
+        </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-toast></p-toast>

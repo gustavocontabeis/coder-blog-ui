@@ -1,0 +1,79 @@
+      <!-- Cadastrar notícia -->
+      <section class="container tm-contact-section" id="contact">
+        <form>
+        <div class="row">
+          <div class="col-xl-5 col-lg-6 col-md-12 tm-contact-left">
+            <div class="tm-contact-form-container ml-auto mr-0">
+              <header>
+                <h2 class="tm-contact-header">Nova Notícia</h2>
+              </header>
+              <form action="index.html" class="tm-contact-form" method="POST">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="contact_name"
+                    name="contact_name"
+                    class="form-control"
+                    placeholder="Título"
+                    [(ngModel)]="post.titulo"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="subtitulo"
+                    name="subtitulo"
+                    class="form-control"
+                    placeholder="Subtítulo"
+                    [(ngModel)]="post.subtitulo"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <textarea
+                    rows="5"
+                    id="conteudo"
+                    name="conteudo"
+                    class="form-control"
+                    placeholder="Conteúdo"
+                    [(ngModel)]="post.conteudo"
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="form-group">
+                  <select id="departamento" name="departamento" [(ngModel)]="post.departamento" class="form-control" placeholder="Departamento">
+                    <option *ngFor="let obj of departamentos" [ngValue]="obj">{{obj.nome}}</option>
+                  </select>
+                </div>
+        
+                  <div class="form-group">
+                    <label for="usuario">Usuário</label>
+                    <select id="usuario" name="usuario" [(ngModel)]="post.usuario" class="form-control">
+                      <option *ngFor="let obj of usuarios" [ngValue]="obj">{{obj.nome}}</option>
+                    </select>
+                  </div>
+                            <div class="tm-text-right">
+                  <button type="submit" class="btn tm-btn tm-btn-big" (click)="salvar()">
+                    Enviar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-xl-7 col-lg-6 col-md-12 tm-contact-right">
+            <div class="tm-contact-figure-block">
+              <figure class="d-inline-block">
+                <img src="assets/img/img-06.jpg" alt="Image" class="img-fluid" />
+                <figcaption class="tm-contact-figcaption">
+                  Nulla arcu tortor, mattis in diam eget, hendrerit vulputate
+                  ligula. Nam non purus consequat, dictum lectus lobortis, laoreet
+                  nibh. Cras vitae facilisis felis. Phasellus tristique.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </form>
+      </section>
