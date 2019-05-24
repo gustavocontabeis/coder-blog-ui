@@ -26,4 +26,8 @@ export class PostService {
     return this.httpClient.delete(this.apiUrl + '/' + post.id);
   }
 
+  buscar(id: number) {
+    return this.httpClient.get(this.apiUrl + '/' + id.toString);
+  }
+
 }

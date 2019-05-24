@@ -1,3 +1,4 @@
+import { VizualizarPostComponent } from './vizualizar-post/vizualizar-post.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
@@ -28,6 +29,8 @@ const routes: Routes = [
   {path: 'contato', component: ContatoComponent},
   {path: 'home', component: HomeComponent},
   {path: 'cadastrar-noticia', component: CadastrarNoticiaComponent},
+  {path: 'vizualizar-post/:id', component: VizualizarPostComponent},
+
 ];
 
 @NgModule({

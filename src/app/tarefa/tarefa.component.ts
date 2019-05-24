@@ -1,3 +1,5 @@
+import { Post } from './../entity/post';
+import { PostService } from './../post/post.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -18,9 +20,31 @@ export class TarefaComponent implements OnInit {
     ],
   ];
 
-  constructor() { }
+  posts: Array<Post> = [];
+
+  tabela2: Array<Array<Post>> = [];
+
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
+    this.consular();
+  }
+
+  consular() {
+    this.postService.consultar().subscribe(resposta => this.acao(resposta));
+  }
+
+  acao(resposta) {
+    console.log(resposta);
+    this.posts = resposta;
+    let linha: Array<Post> = [];
+    this.posts.forEach(element => {
+        linha.push( element );
+        if ( linha.length === 2 ) {
+          this.tabela2.push( linha );
+          linha = [];
+        }
+    });
   }
 
 }
