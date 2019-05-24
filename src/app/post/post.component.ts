@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../entity/post';
 import { PostService } from './post.service';
 import { UsuarioService } from '../usuario/usuario.service';
+import { Usuario } from '../entity/usuario';
+import { Departamento } from '../entity/departamento';
 
 @Component({
   selector: 'app-post',
@@ -12,9 +14,9 @@ import { UsuarioService } from '../usuario/usuario.service';
 export class PostComponent implements OnInit {
 
   post: Post;
-  posts: [];
-  usuarios: [];
-  departamentos: [];
+  posts: Post[];
+  usuarios: Usuario[];
+  departamentos: Departamento[];
 
   constructor(
     private postService: PostService,
@@ -27,9 +29,9 @@ export class PostComponent implements OnInit {
   }
 
   consultar() {
-    this.postService.consultar().subscribe(resposta => this.posts = <any>resposta);
-    this.usuarioService.consultar().subscribe(resposta => this.usuarios = <any>resposta);
-    this.departamentoService.listar().subscribe(resposta => this.departamentos = <any>resposta);
+    this.postService.consultar().subscribe(resposta => {this.posts = <any>resposta}, error => alert('erro post.'));
+    this.usuarioService.consultar().subscribe(resposta => {this.usuarios = <any>resposta}, error => alert('erro usuarios.'));
+    this.departamentoService.listar().subscribe(resposta => {this.departamentos = <any>resposta}, error => alert('erro departamentos.'));
   }
 
   novo() {
@@ -38,7 +40,10 @@ export class PostComponent implements OnInit {
 
   salvar() {
     this.postService.salvar(this.post)
-      .subscribe(() => {},
+      .subscribe(
+        retorno => {
+          console.log(retorno);
+        },
         resposta => {
           if (!resposta.ok) {
             if (resposta.error.errors) {
@@ -47,7 +52,11 @@ export class PostComponent implements OnInit {
               });
             }
           }
-        });
+        },
+        () => {
+          console.log('complete');
+        },
+      );
   }
 
   selecionar(post: Post) {

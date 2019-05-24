@@ -32,7 +32,9 @@ export class UsuarioComponent implements OnInit {
   }
 
   consultar() {
-    this.usuarioService.consultar().subscribe(resposta => this.usuarios = <any> resposta);
+    this.usuarioService.consultar().subscribe(
+      resposta => this.usuarios = <any> resposta
+    );
   }
 
   selecionar(usuario: Usuario) {
