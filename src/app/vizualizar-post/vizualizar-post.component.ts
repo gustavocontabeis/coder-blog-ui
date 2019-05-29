@@ -11,18 +11,18 @@ import { ActivatedRoute } from '@angular/router';
 export class VizualizarPostComponent implements OnInit {
 
   post: Post;
-
+  id: number;
   constructor(private route: ActivatedRoute, private postService: PostService) { }
 
   ngOnInit() {
-    let id = this.route.snapshot.paramMap.get("id");
-    console.log( id );
-    this.postService.buscar(Number(id)).subscribe(x => this.retorno(x));
+    this.post = new Post();
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.postService.buscar(this.id).subscribe(ret => this.retorno(ret));
   }
 
-  retorno(x) {
-    this.post = x;
-    console.log(x);
+  retorno(ret) {
+    this.post = ret;
+    //console.log(this.post);
   }
 
 }

@@ -1,3 +1,17 @@
-<p>
-  vizualizar-post works!
-</p>
+<br />
+<br />
+<br />
+<br />
+<br /><div class="container" id="activities">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="tm-feature-h">{{ post.titulo }}</h2>
+      <h3>{{ post.subtitulo }}</h3>
+      <div [innerHTML]="post.conteudo | keepHtml"></div>
+
+
+
+      <div style="text-align: justify;">{{ post.conteudo | keepHtml }}</div>
+    </div>
+  </div>
+</div>

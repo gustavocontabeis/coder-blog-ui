@@ -26,6 +26,7 @@ import { ContatoComponent } from './contato/contato.component';
 import { HomeComponent } from './home/home.component';
 import { CadastrarNoticiaComponent } from './cadastrar-noticia/cadastrar-noticia.component';
 import { VizualizarPostComponent } from './vizualizar-post/vizualizar-post.component';
+import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { VizualizarPostComponent } from './vizualizar-post/vizualizar-post.compo
     HomeComponent,
     CadastrarNoticiaComponent,
     VizualizarPostComponent,
+    EscapeHtmlPipe
   ],
   imports: [
     BrowserModule,
