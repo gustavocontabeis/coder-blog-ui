@@ -1,46 +1,58 @@
-<div class="row" style="height: 200px;">
+<form [formGroup]="formularioDeUsuario" (ngSubmit)="enviarDados()">
+
+  <div class="row" style="height: 200px;">
     <div class="col-12">xxxxxxxxxxxxxxxxxxxx</div>
-</div>
-<label for="id">Cod.</label>
-<input id="id" [(ngModel)]="usuario.id" /><br/>
+  </div>
+  <label for="id">Cod.</label>
+  <input id="id" [(ngModel)]="usuario.id" formControlName="id" />
+  <br/>
 
-<label for="nome">Nome</label>
-<input id="nome" [(ngModel)]="usuario.nome" /><br/>
+  <label for="nome">Nome</label>
+  <input id="nome" [(ngModel)]="usuario.nome" formControlName="nome"/>
+  <br/>
 
-<label for="senha">senha</label>
-<input id="senha" [(ngModel)]="usuario.senha" /><br/>
+  <label for="senha">senha</label>
+  <input id="senha" [(ngModel)]="usuario.senha" formControlName="senha"/>
+  <br/>
 
-<label for="email">E-mail</label>
-<input id="email" [(ngModel)]="usuario.email" /><br/>
+  <label for="email">E-mail</label>
+  <input id="email" [(ngModel)]="usuario.email" formControlName="email"/>
+  <br/>
 
-<label for="tipoUsuario">Tipo Usuario</label>
-<select id="tipoUsuario" [(ngModel)]="usuario.tipoUsuario">
-  <option value="ADMINISTRADOR">ADMINISTRADOR</option>
-  <option value="VISITANTE">VISITANTE</option>
-</select ><br/>
+  <label for="tipoUsuario">Tipo Usuario</label>
+  <select id="tipoUsuario" [(ngModel)]="usuario.tipoUsuario" formControlName="tipoUsuario">
+    <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+    <option value="VISITANTE">VISITANTE</option>
+  </select>
+  <br/>
 
-<input type="submit" value="Novo" (click)="novo()" />
-<input type="submit" value="Salvar" (click)="adicionar()" />
-<input type="submit" value="Consultar" (click)="consultar()" />
-<input type="submit" value="Excluir" (click)="excluir(usuario)" />
+  <input type="submit" value="Novo" (click)="novo()" />
+  <input type="submit" value="Salvar" (click)="adicionar()" [disabled]="!formularioDeUsuario.valid" />
+  <input type="submit" value="Consultar" (click)="consultar()" />
+  <input type="submit" value="Excluir" (click)="excluir(usuario)" />
 
+</form>
+
+<br>
+<br>
+<div>{{ formularioDeUsuario.value | json}}</div>
+<div>{{ formularioDeUsuario.valid | json }}</div>
 
 <table>
-    <thead>
-      <tr>
-        <th>Cod.</th>
-        <th>Nome</th>
-        <th>email</th>
-        <th>Tipo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let usuario of usuarios" (click)="selecionar(usuario)">
-        <td>{{ usuario.id }}</td>
-        <td>{{ usuario.nome }}</td>
-        <td>{{ usuario.email }}</td>
-        <td>{{ usuario.tipoUsuario }}</td>
-      </tr>
-    </tbody>
-  </table>
-  
+  <thead>
+    <tr>
+      <th>Cod.</th>
+      <th>Nome</th>
+      <th>email</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of usuarios" (click)="selecionar(usuario)">
+      <td>{{ usuario.id }}</td>
+      <td>{{ usuario.nome }}</td>
+      <td>{{ usuario.email }}</td>
+      <td>{{ usuario.tipoUsuario }}</td>
+    </tr>
+  </tbody>
+</table>

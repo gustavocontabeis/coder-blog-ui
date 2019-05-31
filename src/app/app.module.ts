@@ -27,6 +27,7 @@ import { HomeComponent } from './home/home.component';
 import { CadastrarNoticiaComponent } from './cadastrar-noticia/cadastrar-noticia.component';
 import { VizualizarPostComponent } from './vizualizar-post/vizualizar-post.component';
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
     HomeComponent,
     CadastrarNoticiaComponent,
     VizualizarPostComponent,
-    EscapeHtmlPipe
+    EscapeHtmlPipe,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +53,8 @@ import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    TableModule, PanelModule, InputTextModule, ButtonModule, ToastModule
+    TableModule, PanelModule, InputTextModule, ButtonModule, ToastModule,
+    ReactiveFormsModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
