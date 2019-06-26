@@ -14,11 +14,13 @@ import { CompanhiaComponent } from './companhia/companhia.component';
 import { ContatoComponent } from './contato/contato.component';
 import { HomeComponent } from './home/home.component';
 import { CadastrarNoticiaComponent } from './cadastrar-noticia/cadastrar-noticia.component';
+import { PostCadastroComponent } from './post-cadastro/post-cadastro.component';
 
 
 const routes: Routes = [
   { path: 'departamento', component: DepartamentoComponent },
   { path: 'post', component: PostComponent },
+  { path: 'post-cadastro', component: PostCadastroComponent },
   { path: 'usuario-cad', component: UsuarioComponent },
   { path: 'exemplo-binding', component: ExemploBindingComponent },
   { path: 'exemplo-event', component: ExemploEventComponent },

@@ -1,0 +1,77 @@
+<br />
+<br />
+<br />
+<br />
+<p-panel header="Cadastro Post">
+  <form [formGroup]="form" (ngSubmit)="submit()" class="p-3 bg-faded">
+
+    <div class="form-group row">
+      <label for="id" class="col-sm-3 col-form-label">
+        <strong>Cod.</strong>
+      </label>
+      <div class="col-sm-9">
+        <input id="id" type="text" class="form-control" formControlName="id" [(ngModel)]="post.id" />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="ativo" class="col-sm-3 col-form-label">
+        <strong>Ativo</strong>
+      </label>
+      <div class="col-sm-9">
+        <input id="ativo" type="checkbox" class="form-control" formControlName="ativo" [(ngModel)]="post.ativo" />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="titulo" class="col-sm-3 col-form-label">
+        <strong>Título</strong>
+      </label>
+      <div class="col-sm-9">
+        <input id="titulo" type="text" class="form-control" formControlName="titulo" [(ngModel)]="post.titulo" />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="subtitulo" class="col-sm-3 col-form-label">
+        <strong>Subtítulo</strong>
+      </label>
+      <div class="col-sm-9">
+        <input id="subtitulo" type="text" class="form-control" formControlName="subtitulo" [(ngModel)]="post.subtitulo" />
+      </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="departamento" class="col-sm-3 col-form-label">
+          <strong>Departamento</strong>
+        </label>
+        <div class="col-sm-9">
+          <select id="departamento" [(ngModel)]="post.departamento" class="form-control">
+            <option *ngFor="let obj of departamentos" [ngValue]="obj">{{obj.nome}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+          <label for="usuario" class="col-sm-3 col-form-label">
+            <strong>Usuário</strong>
+          </label>
+          <div class="col-sm-9">
+            <select id="usuario" [(ngModel)]="post.usuario" class="form-control">
+              <option *ngFor="let obj of usuarios" [ngValue]="obj">{{obj.nome}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="conteudo" class="col-sm-3 col-form-label">
+              <strong>conteudo</strong>
+            </label>
+            <div class="col-sm-9">
+              <input id="conteudo" type="text" class="form-control" formControlName="conteudo" [(ngModel)]="post.conteudo" />
+            </div>
+          </div>
+      
+      
+  </form>
+</p-panel>

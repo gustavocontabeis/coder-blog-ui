@@ -28,6 +28,7 @@ import { CadastrarNoticiaComponent } from './cadastrar-noticia/cadastrar-noticia
 import { VizualizarPostComponent } from './vizualizar-post/vizualizar-post.component';
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PostCadastroComponent } from './post-cadastro/post-cadastro.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CadastrarNoticiaComponent,
     VizualizarPostComponent,
     EscapeHtmlPipe,
+    PostCadastroComponent,
   ],
   imports: [
     BrowserModule,
